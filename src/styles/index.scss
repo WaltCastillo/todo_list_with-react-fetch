@@ -11,3 +11,12 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+$font-stack:    Helvetica, sans-serif, Bold;
+$primary-color: rgb(27, 14, 14);
+
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+
