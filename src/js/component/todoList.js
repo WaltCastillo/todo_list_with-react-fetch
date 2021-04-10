@@ -5,19 +5,16 @@ export function ToDoList() {
 	const [inputValue, setInputValue] = useState("");
 
 	useEffect(() => {
-		fetch(
-			"https://assets.breatheco.de/apis/fake/todos/user/Fernando1976CR",
-			{
-				method: "POST",
-				body: JSON.stringify([]),
-				headers: {
-					"Content-Type": "application/json"
-				}
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/waltcastillo", {
+			method: "POST",
+			body: JSON.stringify([]),
+			headers: {
+				"Content-Type": "application/json"
 			}
-		)
+		})
 			.then(res => {
 				fetch(
-					"https://assets.breatheco.de/apis/fake/todos/user/Fernando1976CR",
+					"https://assets.breatheco.de/apis/fake/todos/user/waltcastillo",
 					{
 						method: "GET",
 
@@ -44,7 +41,7 @@ export function ToDoList() {
 			setInputValue("");
 
 			fetch(
-				"https://assets.breatheco.de/apis/fake/todos/user/Fernando1976CR",
+				"https://assets.breatheco.de/apis/fake/todos/user/waltcastillo",
 				{
 					method: "PUT",
 					headers: {
@@ -70,7 +67,7 @@ export function ToDoList() {
 
 		if (updateList.length > 0) {
 			fetch(
-				"https://assets.breatheco.de/apis/fake/todos/user/Fernando1976CR",
+				"https://assets.breatheco.de/apis/fake/todos/user/waltcastillo",
 				{
 					method: methods[0],
 					headers: {
@@ -85,7 +82,7 @@ export function ToDoList() {
 				.catch(error => {});
 		} else {
 			fetch(
-				"https://assets.breatheco.de/apis/fake/todos/user/Fernando1976CR",
+				"https://assets.breatheco.de/apis/fake/todos/user/waltcastillo",
 				{
 					method: methods[1],
 					headers: {
@@ -104,16 +101,13 @@ export function ToDoList() {
 	const deleteAll = () => {
 		let emptyList = [];
 
-		fetch(
-			"https://assets.breatheco.de/apis/fake/todos/user/Fernando1976CR",
-			{
-				method: "DELETE",
-				headers: {
-					"Content-Type": "application/json"
-				},
-				body: JSON.stringify(emptyList)
-			}
-		)
+		fetch("https://assets.breatheco.de/apis/fake/todos/user/waltcastillo", {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify(emptyList)
+		})
 			.then(resp => {
 				setList(emptyList);
 			})
@@ -122,7 +116,9 @@ export function ToDoList() {
 
 	return (
 		<div className="container pt-3">
-			<h1 className="text-center display-3">Fetch TODO List</h1>
+			<h1 className="text-center display-3">
+				Todo List with React fetch
+			</h1>
 			<card>
 				<input
 					type="text"
@@ -151,17 +147,17 @@ export function ToDoList() {
 						<p className="card-text pr-4">
 							<small className="text-muted ">
 								{list.length === 0
-									? "(0 pending tasks)"
+									? "(0 pending todo)"
 									: list.length === 1
-									? list.length + " TASK left"
-									: list.length + " TASKS left"}
+									? list.length + " todo left"
+									: list.length + " todos left"}
 							</small>
 						</p>
 						<button
 							type="button"
 							className="btn btn-outline-secondary btn-sm mr-2"
 							onClick={() => deleteAll()}>
-							*DELETE ALL*
+							*Remove*
 						</button>
 					</div>
 				</div>
